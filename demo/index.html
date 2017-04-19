@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <title>literally another slide thing</title>
 
   <!-- Load the polyfill -->
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
   <!-- Load the elements -->
   <link rel="import" href="../a-presentation.html">
@@ -62,63 +62,357 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       font-size: 24px;
       font-weight: lighter;
     }
+    a-slide.a-slide-0 div.light {
+      font-weight: lighter;
+    }
+    a-slide.a-slide-0 div.smaller {
+      font-size: 32px;
+    }
   </style>
 </head>
 <!-- unresoved is a polymer keyword that prevents FOUC -->
 <body unresolved>
   <a-presentation animated>
-    <!-- theme-gradient-orange comes from sample-theme.css -->
-    <!--but align-center is a property of a-slide -->
 
-    <a-slide class="theme-gradient-orange" align-center>
-      <div class="title">Yup</div>
-      <div class="subtitle">It's <b>literally</b> another slides thingie</div>
+    <!--Before Start: Blank Page-->
+    <a-slide class="theme-gradient-orange" align-center style="text-align:center;">
+      <div class="title light">修筑</div>
+      <div class="subtitle smaller">http://xiuz.hu</div>
     </a-slide>
 
-    <a-slide class="theme-green">
-      <div class="pretitle"><i>ok</i></div>
-      <!-- slightly smaller, to fit -->
-      <div class="title" style="font-size: calc(16px + 5vw)">I know what you're thinking.</div>
-      <div class="subtitle">This is a <i><b>great</b></i> idea!</div>
+    <!--Before Start: Meownica, not james gosling, not linus torvalds-->
+    <a-slide class="theme-pink" align-center>
+      <div style="text-align:center">
+        <img class="title" src="./img/monica.jpg" style="width:600px;">
+        <div class="subtitle" style="font-size:4em;color:white">https://meowni.ca</div>
+      </div>
     </a-slide>
 
+    <!--Prelogue: atwood's law-->
+    <a-slide class="theme-gradient-orange" align-right>
+      <div class="subtitle" style="font-size:40px;text-align:center;">"Any application that can be written in JavaScript, will eventually be written in JavaScript."</div>
+      <div class="subtitle"> — Jeff Atwood</div>
+    </a-slide>
+
+    <!--Prelogue: gallery-->
+    <a-slide class="theme-white" align-center>
+      <style>
+        #icon-container img {
+          width: 120px;
+          height: auto;
+          vertical-align: middle;
+        }
+      </style>
+      <div id="icon-container">
+        <img src="./img/TITANIUM_logo.png" alt="">
+        <img src="./img/PhoneGap.png" alt="">
+        <img src="./img/cordova_bot.png" alt="">
+        <img src="./img/ionic-logo.png" alt="">
+        <img src="./img/React-native-icon.png" alt="">
+        <img src="./img/weex.png" alt="">
+        <img src="./img/firefox-os.png" alt="">
+        <img src="./img/webos.svg" alt="">
+        <img src="./img/wechat.svg" alt="" style="width:90px;">
+      </div>
+    </a-slide>
+
+    <!--Prelogue: web vs native-->
     <a-slide class="theme-blue" align-center>
-      <!-- max-width to make it mobile friendly, if you care -->
-      <img style="max-width:100%" src="http://i.imgur.com/c4jt321.png?fb" alt="this is fine dog on fire">
+      <img src="./img/web.vs.native.jpg" style="width: 50%; transform: translateX(50%)" alt="">
     </a-slide>
 
-    <!-- full-width means that the content will not be sized, and takes the whole slide -->
+    <!--Session Topic-->
+    <a-slide class="theme-gradient-orange" align-center>
+      <div class="title">Progressive Web App</div>
+      <div class="subtitle">Yep, another buzzword</div>
+    </a-slide>
+
+    <!--demo time-->
+    <a-slide class="theme-white" align-right>
+      <div class="pretitle">Talk is cheap</div>
+      <div class="title" style="font-size: calc(16px + 5vw)">Show me the demo</div>
+    </a-slide>
+    <!--pure web, no magic!-->
+    <a-slide class="theme-gradient-blue" align-center>
+      <div class="title light">Pure Web</div>
+      <div class="title light">No Magic</div>
+    </a-slide>
+
+    <!--4 major feature-->
+    <a-slide class="theme-green" align-left>
+      <div class="title light" style="font-size: calc(16px + 5vw)">
+        <ul>
+          <li>Installable</li>
+          <li>App Shell</li>
+          <li>Offline</li>
+          <li>Re-Engagement</li>
+        </ul>
+      </div>
+    </a-slide>
+
+    <!--1. Installable-->
+    <a-slide class="theme-red" align-left>
+      <div class="title" style="font-size: calc(16px + 5vw)">Installable</div>
+      <div class="pretitle light smaller">😔 Boring...</div>
+    </a-slide>
+
+    <!-- funny pic: the world's most organized desktop-->
+    <a-slide class="theme-red" align-center>
+      <img src="./img/iphone-desktop.jpg" style="max-width:800px;">
+    </a-slide>
+    <!-- Manifest.json-->
     <a-slide class="theme-red" full-width>
-      <div class="pretitle">it's web-components, yo</div>
-      <div class="code-snippet">
-        <pre>
-<span style="color: #f92672">&lt;a-presentation&gt;</span>
-  <span style="color: #f92672">&lt;a-slide&gt;</span>
-    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;title&quot;</span><span style="color: #f92672">&gt;</span>and polymer!<span style="color: #f92672">&lt;/div&gt;</span>
-    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;subtitle&quot;</span><span style="color: #f92672">&gt;</span>🔥🔥🔥<span style="color: #f92672">&lt;/div&gt;</span>
-  <span style="color: #f92672">&lt;/a-slide&gt;</span>
-<span style="color: #f92672">&lt;/a-presentation&gt;</span>
+      <div class="pretitle">Manifest.json</div>
+      <div class="code-snippet" style="font-size:20px;">
+        <pre><code class="language-json">
+          <span class="p" style="margin-left: -1.5em;">{</span>
+          <span class="nt">"short_name"</span><span class="p">:</span> <span class="s2">"Manifest Sample"</span><span class="p">,</span>
+          <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Web Application Manifest Sample"</span><span class="p">,</span>
+          <span class="nt">"icons"</span><span class="p">:</span> <span class="p">[{</span>
+              <span class="nt">"src"</span><span class="p">:</span> <span class="s2">"launcher-icon-2x.png"</span><span class="p">,</span>
+              <span class="nt">"sizes"</span><span class="p">:</span> <span class="s2">"96x96"</span><span class="p">,</span>
+              <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"image/png"</span>
+          <span class="p">}],</span>
+          <span class="nt">"scope"</span><span class="p">:</span> <span class="s2">"/sample/"</span><span class="p">,</span>
+          <span class="nt">"start_url"</span><span class="p">:</span> <span class="s2">"/sample/index.html"</span><span class="p">,</span>
+          <span class="nt">"display"</span><span class="p">:</span> <span class="s2">"standalone"</span><span class="p">,</span>
+          <span class="nt">"orientation"</span><span class="p">:</span> <span class="s2">"landscape",</span>
+          <span class="s2">"theme_color"</span><span class="p">:</span> <span class="s2">"#000"</span><span class="p">,</span>
+          <span class="nt">"background_color"</span><span class="p">:</span> <span class="s2">"#fff"</span><span class="p">,</span>
+        <span class="p">}</span>
+        </code></pre>
+      </div>
+    </a-slide>
+
+    <!--2. App Shell-->
+    <a-slide class="theme-yellow" align-left>
+      <div class="title" style="font-size: calc(16px + 5vw)">App Shell</div>
+      <div class="pretitle light smaller">Show me what you've got</div>
+      <div class="subtitle light smaller">😒 Still boring...</div>
+    </a-slide>
+
+    <!-- Latency impacts UX -->
+    <a-slide class="theme-white" align-center>
+      <img src="./img/latency-impact.png" style="width: 850px;">
+    </a-slide>
+
+    <!-- tremble before me!-->
+    <a-slide class="theme-yellow" align-center>
+      <style>
+        #icon {
+          width: 100px;
+          height: 100px;
+          border-radius: 20px;
+          background-color: #0fa758;
+          font-size: 70px;
+          text-align: center;
+          line-height: 102px;
+          position: relative;
+        }
+        #close {
+          background-color: rgba(0, 0, 0, 0.6);
+          border-radius: 861112px;
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          display: block;
+          font-size: 33px;
+          line-height: 33px;
+          width: 33px;
+        }
+        #name {
+          text-align: center;
+          padding-top: 8px;
+          margin-left: -5px;
+        }
+        @-webkit-keyframes spaceboots {
+          0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+          10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+          20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+          30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+          40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+          50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+          60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+          70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+          80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+          90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+          100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        #app {
+          -webkit-animation-name: spaceboots;
+          -webkit-animation-duration: 0.8s;
+          -webkit-transform-origin:50% 50%;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-timing-function: linear;
+        }
+      </style>
+      <div id="app">
+        <div id="icon">
+          <span id="close">×</span>
+          💩
+        </div>
+        <div id="name">I'm a Shitty App</div>
+      </div>
+    </a-slide>
+
+    <!--3. Offline Mode -->
+    <a-slide class="theme-blue" align-right>
+      <div class="title" style="font-size: calc(16px + 5vw)">Offline</div>
+      <div class="pretitle light smaller">No downasaur!</div>
+      <div class="subtitle light smaller">🤔 Huh...</div>
+    </a-slide>
+
+    <!-- downasaur -->
+    <a-slide class="theme-blue" align-center>
+      <img src="./img/downasaur.jpg" style="width: 300px;">
+    </a-slide>
+
+    <!-- downasaur: When life gives you lemons, make lemonade-->
+    <a-slide class="theme-blue" align-center style="text-align:center;">
+      <video id="t-rex" width="700px" autoplay loop style="position:relative;top:-20px;">
+        <source src="./img/t-rex.mp4" type="video/mp4">
+      </video>
+
+      <div class="light" style="font-size:40px;text-align:center;">"When life gives you a downasaur, play with it"</div>
+      <div class="light smaller" style="text-align:right;margin-top: 10px;"> — Me (trying to be funny)</div>
+    </a-slide>
+
+    <!-- service worker!-->
+    <a-slide class="theme-blue" align-center style="text-align:center;">
+      <div class="title light">Service Worker</div>
+    </a-slide>
+
+    <!-- service worker: diagram-->
+    <a-slide class="theme-blue" align-center style="text-align:center;">
+      <img src="./img/service-worker.png" alt="">
+    </a-slide>
+
+    <!--service worker sample-->
+    <a-slide class="theme-blue" full-width>
+      <div class="pretitle">Hello, Service Worker!</div>
+      <div class="code-snippet" style="font-size:18px;padding:0">
+        <pre style="margin:0">
+          <code>
+
+            <span style="color: gray">// somewhere in your old-fashioned js</span>
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('path/to/aServiceWorker.js')
+            }
+          </code>
+          <code class="language-text"><span></span>    <span style="color:gray">// aServiceWorker.js</span>
+            self.oninstall = (e) =&gt; {
+              e.waitUntil(
+                caches.open('installation')
+                  .then(cache =&gt;  cache.addAll([
+                    './beautifulStyle.css',
+                    './awesomeScript.js'
+                  ]))
+              )
+            })
+          </code>
+          <code class="language-js" style="left: 130px; top:-20px;position: relative;">
+<span class="nx">self</span><span class="p">.</span><span class="nx">onfetch</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">fetched</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">request</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">cached</span> <span class="o">=</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">request</span><span class="p">)</span>
+
+  <span class="nx">e</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span>
+    <span class="nx">fetched</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">_</span> <span class="o">=&gt;</span> <span class="nx">cached</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code>
         </pre>
+          
       </div>
     </a-slide>
 
-    <!-- align center makes sure the content as a whole is centered in the page
-      text-align: center actually centers the text inside the content -->
+    <!--4. ReEngagement -->
+    <a-slide class="theme-red" align-right>
+      <div class="title" style="font-size: calc(16px + 5vw)">Re-Engagement</div>
+      <div class="pretitle light smaller">"Your crush just poked you"</div>
+      <div class="subtitle light smaller">😯 Now we're talking...</div>
+    </a-slide>
+
+    <!-- funny pic -->
+    <a-slide class="theme-red" align-center>
+      <img src="./img/wa.jpeg" alt="">
+    </a-slide>
+
+    <!-- Push/Notification API -->
+    <a-slide class="theme-red" align-left>
+      <div class="title light" style="font-size: calc(5vw)">
+        <ul>
+          <li>Push API</li>
+          <li>Notification API</li>
+        </ul>
+      </div>
+    </a-slide>
+
+    <!-- and more -->
+    <a-slide class="theme-gray" align-center>
+      <div class="title" style="font-size: calc(16px + 5vw)">And</div>
+      <div class="subtitle">There is more...</div>
+    </a-slide>
+
+    <!-- demo: meatscope -->
     <a-slide class="theme-yellow" align-center style="text-align: center">
-      <div class="iframe-title">iframes are <i><b>dope*</b></i></div>
-
-      <!-- anyway i hate iframes and don't know how to style them -->
+      <div class="iframe-title">https://meatscope.camera</b></i></div>
       <div style="width: 80vw; height: 80vh; overflow: auto; text-align: center;">
-        <iframe src="http://meowni.ca/emojillate/" height="100%" width="100%"></iframe>
+        <iframe src="https://meatscope.camera" height="100%" width="100%"></iframe>
       </div>
-      <div class="iframe-title">* this is a lie</div>
     </a-slide>
 
-    <a-slide class="theme-gradient-blue" align-right>
-      <div class="title">Code on github</div>
-      <div class="subtitle">notwaldorf/literally</div>
+    <!-- http2 push -->
+    <a-slide class="theme-yellow" align-center style="text-align: center">
+      <style>
+        #img1, #img2 {
+          position: relative;
+        }
+        #img1 {
+          top: -100px;
+          left: 100px;
+        }
+        #img2 {
+          top: 100px;
+          left: -100px;
+          z-index: 100;
+        }
+      </style>
+      <img id="img1" src="./img/http2push.png" alt="">
+      <img id="img2" src="./img/http2push2.png" alt="">
+    </a-slide>
+
+    <!--so what?-->
+    <a-slide class="theme-white" align-center style="text-align: center">
+      <div class="title">So what?</div>
+    </a-slide>
+
+    <!--Epilogue: taobao native vs taobao web-->
+    <a-slide class="theme-gray" align-center>
+      <style>
+        #tb-native-vs-web {
+          width: 100%;
+          text-align: center;
+        }
+        #tb-native-vs-web img {
+          display: inline-block;
+          margin-right: 80px;
+          width: 300px;
+        }
+      </style>
+      <div id="tb-native-vs-web">
+        <img src="./img/tb_native.png" alt="">
+        <img src="./img/tb_web.png" alt=""> 
+      </div>
+    </a-slide>
+
+    <!-- Epilogue: keep calm, have fun -->
+    <a-slide style="background-color:rgb(85,194,214)" align-center>
+      <img src="./img/have-fun.jpg" alt="">
     </a-slide>
 
   </a-presentation>
+  <script>
+    document.getElementById('t-rex').play();
+  </script>
 </body>
 </html>
