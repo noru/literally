@@ -12,16 +12,16 @@ This fork added 2 thingie:
 ![](./img/steps.gif)
 
   **Example**: 
-  
-    ```html
-    <div step="1">Show first</div>
-    <div step="3">Show last</div>
-    <div step="2">Show second</div>
-    <div step="2">Also the second</div>
 
-    <!-- or -->
-    <div step>Empty value go first</div>
-    <div step="3">Then numbers, after 2</div>
-    <div step="2">Then numbers, before 3</div>
-    <div step="string">String value comes the last</div>
-    ```
+  ```html
+  <div step="1">Show first</div>
+  <div step="3">Show last</div>
+  <div step="2">Show second</div>
+  <div step="2">Also the second</div>
+
+  <!-- or -->
+  <div step>Empty value go first</div>
+  <div step="3">Then numbers, after 2</div>
+  <div step="2">Then numbers, before 3</div>
+  <div step="string">String value comes the last</div>
+  ```
