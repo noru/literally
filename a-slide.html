@@ -69,8 +69,12 @@
       font-weight: lighter;
     }
     ::content .hidden {
-      visibility: hidden;
+      opacity: 0;
     }
+    ::content *[step] {
+      transition: opacity .5s;
+    }
+    
   </style>
 
   <template>
