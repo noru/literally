@@ -11,7 +11,8 @@ This fork added 2 thingie:
 
 ![](./img/steps.gif)
 
-    **Example**: 
+  **Example**: 
+  
     ```html
     <div step="1">Show first</div>
     <div step="3">Show last</div>
