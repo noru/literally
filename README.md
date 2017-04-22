@@ -1,12 +1,14 @@
-This repo is forked from the awesome and mighty [Meownica](https://meowni.ca), for detail usage please go to [Original Repo](https://github.com/notwaldorf/literally).
+#### This repo is forked from the awesome and mighty [Meownica](https://meowni.ca), for detail usage please go to [Original Repo](https://github.com/notwaldorf/literally).
 
-This repo added 2 thingie: 
+This fork added 2 thingie: 
 
 1. Press <kbd>F</kbd> to toggle a spotlight, and <kbd>D</kbd> to expand, <kbd>G</kbd> to shrink the circle.
+
 ![](./img/spotlight.gif)
 
 
 2. Elements within `<a-slide>` now have a `step` attribute. Every child with a `step` attribute is invisible by default, and ordered by its `step` value. Press <kbd>.</kbd> to show the next element, and <kbd>,</kbd> to hide the last shown one.
+
 ![](./img/steps.gif)
 
     **Example**: 
