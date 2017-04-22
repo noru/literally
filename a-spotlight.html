@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="a-spotlight">
+  <style>
+    :host {
+      display: block;
+    }
+    .overlay {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: fixed;      
+    }
+    .spotlight {
+      position: absolute;
+      z-index: 861112;
+      border-radius: 861112px;
+      box-shadow: 0 0 0 861112px rgba(0, 0, 0, .5);
+      cursor: none;
+      transform: translate(-50%, -50%);
+      transition: width .3s, height .3s;
+    }
+  </style>
+
+  <template>
+    <template is="dom-if" if="[[open]]">
+      <!-- overlay is to capture mousemove event -->
+      <div class="overlay">
+        <div class="spotlight" style$="[[_pos(mouseX, mouseY)]][[_diameter(diameter)]]"></div>
+      </div>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'a-spotlight',
+      properties: {
+        open: {
+          type: Boolean,
+          value: false,
+        },
+        mouseX: {
+          type: Number,
+        },
+        mouseY: {
+          type: Number,
+        },
+        diameter: {
+          type: Number,
+          value: 300,
+          notify: true
+        }
+      },
+      _pos: function(x, y) {
+        return 'top:' + y + 'px;left:' + x + 'px;'
+      },
+      _diameter: function(d) {
+        // set a boudary
+        if (d > 600) {
+          d = this.diameter = 600
+        }
+        if (d < 100) {
+          d = this.diameter = 100
+        }
+        return 'width:' + d + 'px;height:' + d + 'px;'
+      },
+      attached: function() {
+
+        // init position
+        this.mouseX = window.innerWidth / 2
+        this.mouseY = window.innerHeight / 2
+
+        // listen to mousemove event and update self position
+        this.addEventListener('mousemove', function(evt) {
+          this.mouseX = evt.clientX
+          this.mouseY = evt.clientY
+        })
+      }
+    });
+  </script>
+</dom-module>

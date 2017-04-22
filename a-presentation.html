@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../neon-animation/neon-animated-pages.html">
 <link rel="import" href="../neon-animation/neon-animations.html">
+<link rel="import" href="./a-spotlight.html">
 
 <dom-module id="a-presentation">
   <style>
@@ -32,6 +33,7 @@
         exit-animation="[[_exitAnimation]]">
 			<content select="a-slide"></content>
 		</neon-animated-pages>
+    <a-spotlight open="[[openSpotlight]]" diameter={{spotlightDiameter}}></a-spotlight>
   </template>
 
   <script>
@@ -58,6 +60,20 @@
         animated: {
           type: Boolean,
           value: false
+        },
+        /** 
+         * Open Spotlight for focusing a certain part of the slide        
+         */
+        openSpotlight: {
+          type: Boolean,
+          value: false
+        },
+        /** 
+         * Spotlight diamter   
+         */
+        spotlightDiameter: {
+          type: Number,
+          value: 300
         }
       },
 
@@ -70,6 +86,7 @@
 
         var nexts = [39 /* right */, 40 /* down */, 32 /* space */, 13 /* enter */];
         var backs = [37 /* left */, 38 /* up */];
+        var spotlight = [70 /* F: toggle */, 71 /* G: expand */, 68/* D: shrink */]
         this.addEventListener('keydown', function(event) {
           if (nexts.indexOf(event.keyCode) !== -1 ) {
             this.next();
@@ -77,10 +94,12 @@
             this.previous();
           } else if ((event.charChode == '32')) {  // Ok Firefox.
             this.next();
+          } else if (spotlight.indexOf(event.keyCode) !== -1) {
+            this.spotlightCtrl(event.keyCode)
           } else {
             this.fire('key-down', event, {
-                node: Polymer.dom(this).querySelectorAll('a-slide')[this.currentSlide],
-                bubbles: false
+              node: Polymer.dom(this).querySelectorAll('a-slide')[this.currentSlide],
+              bubbles: false
             })
           }
         }, true);
@@ -125,6 +144,15 @@
         }
       },
 
+      spotlightCtrl: function(key) {
+        if (key === 70) {
+          this.openSpotlight = !this.openSpotlight
+        } else if (key === 68 && this.openSpotlight) {
+          this.spotlightDiameter -= 20
+        } else if (key === 71 && this.openSpotlight) {
+          this.spotlightDiameter += 20
+        }
+      },
       selectIndex: function() {
         var hash = parseInt(window.location.hash.replace('#', '') || 0);
 
