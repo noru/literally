@@ -77,6 +77,11 @@
             this.previous();
           } else if ((event.charChode == '32')) {  // Ok Firefox.
             this.next();
+          } else {
+            this.fire('key-down', event, {
+                node: Polymer.dom(this).querySelectorAll('a-slide')[this.currentSlide],
+                bubbles: false
+            })
           }
         }, true);
 

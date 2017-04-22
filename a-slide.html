@@ -68,6 +68,9 @@
       font-size: calc(16px + 4vw);
       font-weight: lighter;
     }
+    ::content .hidden {
+      visibility: hidden;
+    }
   </style>
 
   <template>
@@ -80,8 +83,76 @@
   </template>
 
   <script>
+
+    function getNumberSafely(i) {
+      if (i === '' || i === undefined || i === null) {
+        return Number.MIN_VALUE
+      }
+      i = +i
+      if (Number.isNaN(i)) {
+        return Number.MAX_VALUE
+      }
+      return i
+    }
+
+    function getStep(e) {
+      return getNumberSafely(e.getAttribute('step'))
+    }
+
+    function last(array) {
+      return array[array.length - 1]
+    }
+
     Polymer({
-      is: 'a-slide'
+      is: 'a-slide',
+      listeners: {
+        'key-down': 'handleKeyDown' 
+      },
+      properties: {
+        currentStep: {
+          type: Number,
+          value: 0
+        },
+        steps: {
+          type: Array,
+        }
+      },
+      attached: function() {
+        this.steps = []
+        Polymer.dom(this).querySelectorAll('*[step]')
+          .sort(function(e1, e2) { 
+            return getStep(e1) - getStep(e2)
+          }).forEach(function(element) {
+            element.classList.add('hidden')
+            if (this.steps.length > 0 && getStep(element) === getStep(last(this.steps)[0])) {
+              last(this.steps).push(element)
+            } else {
+              this.steps.push([element])
+            }
+          }, this);
+      },
+      handleKeyDown: function(evt) {
+        var key = evt.detail.keyCode
+        if (key === 190) { // key "." 
+          this.nextElement()
+        } else if (key === 188) {  // key "," 
+          this.prevElement()
+        }
+      },
+      nextElement: function() {
+        if (this.currentStep < this.steps.length) {
+          this.steps[this.currentStep++].forEach(function(e) {
+            e.classList.remove('hidden')
+          })
+        }
+      },
+      prevElement: function() {
+        if (this.currentStep > 0) {
+          this.steps[--this.currentStep].forEach(function(e) {
+            e.classList.add('hidden')
+          })
+        }
+      }
     });
   </script>
 </dom-module>

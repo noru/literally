@@ -71,15 +71,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!--but align-center is a property of a-slide -->
 
     <a-slide class="theme-gradient-orange" align-center>
-      <div class="title">Yup</div>
-      <div class="subtitle">It's <b>literally</b> another slides thingie</div>
+      <div class="title" step="1">Yup</div>
+      <div class="subtitle" step="2">It's <b>literally</b> another slides thingie</div>
     </a-slide>
 
     <a-slide class="theme-green">
-      <div class="pretitle"><i>ok</i></div>
+      <div class="pretitle" step="3"><i>ok</i></div>
       <!-- slightly smaller, to fit -->
-      <div class="title" style="font-size: calc(16px + 5vw)">I know what you're thinking.</div>
-      <div class="subtitle">This is a <i><b>great</b></i> idea!</div>
+      <div class="title" step="2" style="font-size: calc(16px + 5vw)">I know what you're thinking.</div>
+      <div class="subtitle" step="1">This is a <i><b>great</b></i> idea!</div>
     </a-slide>
 
     <a-slide class="theme-blue" align-center>
@@ -89,8 +89,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- full-width means that the content will not be sized, and takes the whole slide -->
     <a-slide class="theme-red" full-width>
-      <div class="pretitle">it's web-components, yo</div>
-      <div class="code-snippet">
+      <div class="pretitle" step>it's web-components, yo</div>
+      <div class="code-snippet" step="code">
         <pre>
 <span style="color: #f92672">&lt;a-presentation&gt;</span>
   <span style="color: #f92672">&lt;a-slide&gt;</span>
@@ -105,13 +105,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- align center makes sure the content as a whole is centered in the page
       text-align: center actually centers the text inside the content -->
     <a-slide class="theme-yellow" align-center style="text-align: center">
-      <div class="iframe-title">iframes are <i><b>dope*</b></i></div>
+      <div class="iframe-title" step>iframes are <i><b>dope*</b></i></div>
 
       <!-- anyway i hate iframes and don't know how to style them -->
-      <div style="width: 80vw; height: 80vh; overflow: auto; text-align: center;">
+      <div style="width: 80vw; height: 80vh; overflow: auto; text-align: center;" step="1">
         <iframe src="http://meowni.ca/emojillate/" height="100%" width="100%"></iframe>
       </div>
-      <div class="iframe-title">* this is a lie</div>
+      <div class="iframe-title" step="lie">* this is a lie</div>
     </a-slide>
 
     <a-slide class="theme-gradient-blue" align-right>
